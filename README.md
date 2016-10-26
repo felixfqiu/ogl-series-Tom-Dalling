@@ -3,7 +3,7 @@
 ref Article 1 (see below)
 
 ## [161026c]
-// TODO: Explaining the workflow
+// TODO: Workflow Explaining
 
 ## [161026b] VAO / VBO in LoadTriangle 
  - gen / bind / enable / unbind
