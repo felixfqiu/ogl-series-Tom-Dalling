@@ -1,0 +1,17 @@
+# VC++ crap
+*.suo
+*.vcxproj.user
+*.sdf
+*.opensdf
+*.VC.db
+**/Debug/
+
+# Xcode crap
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+build/
+
+# linux build output
+platforms/linux/*/bin/
+platforms/linux/*/obj/
+/opengl-series.VC.VC.opendb

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\source\common\thirdparty\glew\src\glew.c">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="platform_windows.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\HelloOglSeries\source\main.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\HelloOglSeries\source\Program.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\HelloOglSeries\source\Shader.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\source\HelloOglSeries\source\Program.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\HelloOglSeries\source\Shader.h">
+      <Filter>source</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\source\HelloOglSeries\resources\fragment-shader.txt">
+      <Filter>source\resources</Filter>
+    </Text>
+    <Text Include="..\..\source\HelloOglSeries\resources\vertex-shader.txt">
+      <Filter>source\resources</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="source">
+      <UniqueIdentifier>{cbb6c696-b0d5-42fd-8dea-1f68070cd2c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\resources">
+      <UniqueIdentifier>{43e3641a-2e5e-40a9-bb82-6e44443c2823}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{2fae13e5-071c-463b-af31-09d4bf40a3ad}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
