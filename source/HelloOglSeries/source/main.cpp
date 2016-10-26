@@ -28,13 +28,13 @@ static void LoadShaderAndProgram()
 	shaders.push_back(tdogl::Shader::shaderFromFile(ResourcePath("fragment-shader.txt"), GL_FRAGMENT_SHADER));
 
 	//
-	// program TODO: 
+	// program
 	//
 	gProgram = new tdogl::Program(shaders);
 }
 
 //
-// LoadTriangle TODO: 
+// TODO: LoadTriangle
 //
 static void LoadTriangle()
 {
@@ -48,12 +48,14 @@ static void LoadTriangle()
 	void DeleteVertexArrays(sizei n, const uint *arrays);
 	void BindVertexArray(uint array);
 	//*/
+	glGenVertexArrays(1, &gVAO);
+	glBindVertexArray(gVAO);
 
 	/*/ // 10/25/2016 
+	Creating and Binding Buffer Objects[2.9.1]
+
 	void GenBuffers(sizei n, uint *buffers);
 	void DeleteBuffers(sizei n, const uint *buffers);
-
-	Creating and Binding Buffer Objects[2.9.1]
 
 	void BindBuffer(enum target, uint buffer);
 	target: PIXEL_{PACK, UNPACK}_BUFFER,
@@ -71,6 +73,60 @@ static void LoadTriangle()
 	uint index, uint buffer);
 	target: see BindBufferRange
 	//*/
+	glGenBuffers(1, &gVBO);
+	glBindBuffer(GL_ARRAY_BUFFER, gVBO);
+
+	/*/ // 10/26/2016 
+	Creating Buffer Object Data Stores[2.9.2]
+
+	void BufferSubData(enum target,	intptr offset, sizeiptr size, const void *data);
+	target: see BindBuffer
+	
+	void BufferData(enum target, sizeiptr size, const void *data, enum usage);
+	usage: STREAM_{DRAW, READ, COPY},
+	{DYNAMIC, STATIC}_{DRAW, READ, COPY}
+	target: see BindBuffer
+	Mapping/Unmapping Buffer Data[2.9.3]
+	
+	void *MapBufferRange(enum target, intptr offset, sizeiptr length, bitfield access);
+	access: The logical OR of MAP_{READ, WRITE}_BIT,
+	MAP_INVALIDATE_{BUFFER, RANGE}_BIT,
+	MAP_{FLUSH_EXPLICIT, UNSYNCHRONIZED}_BIT,
+	target: see BindBuffer
+	
+	void *MapBuffer(enum target, enum access);
+	access: READ_ONLY, WRITE_ONLY, READ_WRITE
+	
+	void FlushMappedBufferRange(enum target, intptr offset, sizeiptr length);
+	target: see BindBuffer
+	
+	boolean UnmapBuffer(enum target);
+	target: see BindBuffer
+	//*/
+	GLfloat vertexData[] = {
+		//  X      Y     Z
+		 0.0f,  0.8f, 0.0f,
+		-0.8f, -0.8f, 0.0f,
+		 0.8f, -0.8f, 0.0f,
+	};
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertexData), vertexData, GL_STATIC_DRAW);
+
+	/*/ // 10/26/2016 
+	Vertex Arrays [2.8]
+
+	void EnableVertexAttribArray(uint index);
+
+	void VertexAttribIPointer(uint index, int size, enum type, sizei stride, const void *pointer);
+	type: BYTE, SHORT, UNSIGNED_{BYTE, SHORT}, INT, UINT
+	index: [0, MAX_VERTEX_ATTRIBS - 1]
+	//*/
+	// connect xyz to "vert" attribute of vertex-shader.txt
+	glEnableVertexAttribArray(gProgram->attrib("vert"));
+	glVertexAttribPointer(gProgram->attrib("vert"), 3, GL_FLOAT, GL_FALSE, 0, NULL);
+
+	// unbind
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
 }
 
 static void Render()
@@ -136,6 +192,9 @@ void AppMain()
 	//
 	LoadShaderAndProgram();
 
+	//
+	// set up VBO / VAO
+	//
 	LoadTriangle();
 
 	while (!glfwWindowShouldClose(gWindow))

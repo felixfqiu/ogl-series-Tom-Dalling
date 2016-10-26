@@ -134,3 +134,34 @@ GLuint Program::object() const
 {
 	return _object;
 }
+
+GLuint Program::attrib(const GLchar* attribName) const
+{
+	if (attribName == NULL)
+	{
+		throw std::runtime_error("attribName was NULL");
+	}
+
+	/*/ // 10/26/2016 
+	Vertex Attributes[2.11.6] [2.14.6]
+
+	Vertex shaders operate on array of 4-component
+	items numbered from slot 0 to
+	MAX_VERTEX_ATTRIBS - 1.
+	
+	void GetActiveAttrib(uint program, uint index, sizei bufSize, sizei *length, int *size, enum *type, char *name);
+	*type returns: FLOAT_{VECn, MATn, MATnxm},
+	FLOAT, {UNSIGNED_}INT,
+	{UNSIGNED_} INT_VECn
+
+	int GetAttribLocation(uint program,	const char *name);
+	void BindAttribLocation(uint program, uint index, const char *name);
+	//*/
+	GLuint attrib = glGetAttribLocation(_object, attribName);
+	if (attrib == -1)
+	{
+		throw std::runtime_error(std::string("Program attribute not found: ") + attribName);
+	}
+
+	return attrib;
+}

@@ -14,6 +14,8 @@ namespace tdogl
 
 		GLuint object() const;
 
+		GLuint attrib(const GLchar* attribName) const;
+
 	private:
 		GLuint _object;
 

@@ -2,8 +2,9 @@
 
 ref Article 1 (see below)
 
-## [161026b] TODO
- -  - VAO / VBO / LoadTriangle()
+## [161026b] VAO / VBO in LoadTriangle 
+ - gen / bind / enable / unbind
+ - GLint attrib(const GLchar* attribName) const;
 
 ## [161026a] Program::Program(const std::vector<Shader>& shaders)
 
