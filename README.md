@@ -1,9 +1,31 @@
-# About
+# Feng's New
+
+## HelloOglSeries.vcxproject
+
+[16102611]
+### TODO
+ - Render()
+ - Program::Program(const std::vector<Shader>& shaders)
+ - VAO / VBO / LoadTriangle()
+
+[16102600] ref Article 1 (see below)
+### LoadShaderAndProgram
+ - shaderFromFile()
+ - vertex-shader.txt / fragment-shader.txt
+### glInit
+ - glfwInit / Window / Context
+ - glewInit
+### Q&A / Tips
+ - Shader::Shader(const Shader& other)
+
+
+
+# Tom Dalling's About
 
 This is a repository of open-source code to accompany a series of OpenGL articles on
 http://tomdalling.com/
 
-List of articles:
+## List of articles
 
  1. [Getting Started in Xcode, Visual C++, and Linux](http://tomdalling.com/blog/modern-opengl/01-getting-started-in-xcode-and-visual-cpp/)
  2. [Textures](http://tomdalling.com/blog/modern-opengl/02-textures/)
