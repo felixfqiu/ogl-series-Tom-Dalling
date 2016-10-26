@@ -1,22 +1,21 @@
-# Feng's New
+# Feng's HelloOglSeries.vcxproject
 
-## HelloOglSeries.vcxproject
+ref Article 1 (see below)
 
-[16102611]
-### TODO
- - Render()
- - Program::Program(const std::vector<Shader>& shaders)
- - VAO / VBO / LoadTriangle()
+## [161026b] TODO
+ -  - VAO / VBO / LoadTriangle()
 
-[16102600] ref Article 1 (see below)
-### LoadShaderAndProgram
+## [161026a] Program::Program(const std::vector<Shader>& shaders)
+
+## [161026x] LoadShaderAndProgram 
  - shaderFromFile()
  - vertex-shader.txt / fragment-shader.txt
-### glInit
+
+###          glInit
  - glfwInit / Window / Context
  - glewInit
-### Q&A / Tips
- - Shader::Shader(const Shader& other)
+
+###          Shader::Shader(const Shader& other)
 
 
 

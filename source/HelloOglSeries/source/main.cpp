@@ -30,6 +30,7 @@ static void LoadShaderAndProgram()
 	//
 	// program TODO: 
 	//
+	gProgram = new tdogl::Program(shaders);
 }
 
 //
@@ -99,6 +100,11 @@ static void Render()
 
 void AppMain()
 {
+	//
+	// ### glInit
+	// - glfwInit / Window / Context
+	// - glewInit
+	//
 	if (!glfwInit())
 	{
 		throw std::runtime_error("glfwInit failed");
@@ -123,6 +129,11 @@ void AppMain()
 		throw std::runtime_error("OpenGL 3.2 API is not available.");
 	}
 
+	//
+	// ### LoadShaderAndProgram
+	//  - shaderFromFile()
+	//	- vertex - shader.txt / fragment - shader.txt
+	//
 	LoadShaderAndProgram();
 
 	LoadTriangle();
