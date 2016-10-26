@@ -16,6 +16,7 @@
     <ClCompile Include="..\..\source\HelloOglSeries\source\Shader.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\source\HelloOglSeries\Workflow Explaining.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\source\HelloOglSeries\source\Program.h">

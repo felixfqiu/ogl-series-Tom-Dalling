@@ -33,9 +33,6 @@ static void LoadShaderAndProgram()
 	gProgram = new tdogl::Program(shaders);
 }
 
-//
-// TODO: LoadTriangle
-//
 static void LoadTriangle()
 {
 	/*/ // 10/25/2016 

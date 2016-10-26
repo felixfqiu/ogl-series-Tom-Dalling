@@ -81,6 +81,7 @@
     <ClCompile Include="..\..\source\HelloOglSeries\source\Program.cpp" />
     <ClCompile Include="..\..\source\HelloOglSeries\source\Shader.cpp" />
     <ClCompile Include="..\..\source\common\thirdparty\glew\src\glew.c" />
+    <ClCompile Include="..\..\source\HelloOglSeries\Workflow Explaining.cpp" />
     <ClCompile Include="platform_windows.cpp" />
   </ItemGroup>
   <ItemGroup>
