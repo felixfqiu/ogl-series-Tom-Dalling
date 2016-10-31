@@ -27,22 +27,22 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\source\HelloOglSeries\resources\fragment-shader.txt">
-      <Filter>source\resources</Filter>
-    </Text>
     <Text Include="..\..\source\HelloOglSeries\resources\vertex-shader.txt">
-      <Filter>source\resources</Filter>
+      <Filter>source\shader</Filter>
+    </Text>
+    <Text Include="..\..\source\HelloOglSeries\resources\fragment-shader.txt">
+      <Filter>source\shader</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="source">
       <UniqueIdentifier>{cbb6c696-b0d5-42fd-8dea-1f68070cd2c6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="source\resources">
-      <UniqueIdentifier>{43e3641a-2e5e-40a9-bb82-6e44443c2823}</UniqueIdentifier>
-    </Filter>
     <Filter Include="common">
       <UniqueIdentifier>{2fae13e5-071c-463b-af31-09d4bf40a3ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\shader">
+      <UniqueIdentifier>{f18bffcd-1178-4096-9549-bb300e506c24}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
