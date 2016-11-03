@@ -23,10 +23,17 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelloOglSeries", "platforms
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C706A55C-EA3E-4D13-864D-9052F88CF59E}"
 	ProjectSection(SolutionItems) = preProject
+		[161026b] VAO、VBO in LoadTriangle.md = [161026b] VAO、VBO in LoadTriangle.md
+		[161026c] Workflow Explaining.md = [161026c] Workflow Explaining.md
+		[161026x] LoadShaderAndProgram.md = [161026x] LoadShaderAndProgram.md
+		[161103a] Textures.md = [161103a] Textures.md
+		[About Tom Dalling].md = [About Tom Dalling].md
 		C:\Users\js\Desktop\Cheat Sheet\opengl42-quick-reference-card.pdf = C:\Users\js\Desktop\Cheat Sheet\opengl42-quick-reference-card.pdf
 		C:\Users\js\Desktop\Cheat Sheet\opengl43-quick-reference-card.pdf = C:\Users\js\Desktop\Cheat Sheet\opengl43-quick-reference-card.pdf
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OglSeries", "OglSeries", "{6EBFCBEA-47AA-4F3A-A7F9-52CA4E6AD2F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,5 +80,15 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0E839A2B-C52A-406F-B290-E21A585D9178} = {6EBFCBEA-47AA-4F3A-A7F9-52CA4E6AD2F1}
+		{872F49FD-A39D-4180-B5EC-52D4325FD9A3} = {6EBFCBEA-47AA-4F3A-A7F9-52CA4E6AD2F1}
+		{2DD67AF3-0BB1-4E5D-AB2A-D777423F28BB} = {6EBFCBEA-47AA-4F3A-A7F9-52CA4E6AD2F1}
+		{2AFCB852-7CC9-4B7A-A1C4-AF6565396B9C} = {6EBFCBEA-47AA-4F3A-A7F9-52CA4E6AD2F1}
+		{E46A1BC9-C98D-432A-8BD5-04F6F41436DF} = {6EBFCBEA-47AA-4F3A-A7F9-52CA4E6AD2F1}
+		{FC6C6DAB-BE5E-4DFA-ADE7-92FE4F71C043} = {6EBFCBEA-47AA-4F3A-A7F9-52CA4E6AD2F1}
+		{273F6D3E-1883-4F00-80A7-F86760A859D6} = {6EBFCBEA-47AA-4F3A-A7F9-52CA4E6AD2F1}
+		{70A49527-59F2-4B07-8D5A-87C3D94FB802} = {6EBFCBEA-47AA-4F3A-A7F9-52CA4E6AD2F1}
 	EndGlobalSection
 EndGlobal

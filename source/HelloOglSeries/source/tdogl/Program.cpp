@@ -1,5 +1,6 @@
 
 #include "Program.h"
+#include <assert.h>
 
 using namespace tdogl;
 
@@ -135,6 +136,17 @@ GLuint Program::object() const
 	return _object;
 }
 
+bool Program::isInUse() const
+{
+	GLint currentProgram = 0;
+	/*/ // 11/3/2016 State and State Requests
+	void GetIntegerv(enum pname, int *data);
+	//*/
+	glGetIntegerv(GL_CURRENT_PROGRAM, &currentProgram);
+
+	return currentProgram == (GLint)_object;
+}
+
 GLuint Program::attrib(const GLchar* attribName) const
 {
 	if (attribName == NULL)
@@ -164,4 +176,42 @@ GLuint Program::attrib(const GLchar* attribName) const
 	}
 
 	return attrib;
+}
+
+
+GLint Program::uniform(const GLchar* uniformName) const
+{
+	if (uniformName == NULL)
+	{
+		throw std::runtime_error("uniformName was NULL");
+	}
+
+	/*/ // 11/3/2016 
+	int GetUniformLocation(uint program, const char *name);
+	GetActiveUniformName
+	GetUniformIndices
+	GetActiveUniform
+	GetActiveUniformsiv
+	GetUniformBlockIndex
+	GetActiveUniformBlockName
+	GetActiveUniformBlockiv
+	GetActiveAtomicCounterBufferiv
+	//*/
+	GLint uniform = glGetUniformLocation(_object, uniformName);
+	if (uniform == -1)
+	{
+		throw std::runtime_error(std::string("Program uniform not found: ") + uniformName);
+	}
+
+	return uniform;
+}
+
+void Program::setUniform(const GLchar* uniformName, int v0)
+{
+	assert(isInUse());
+
+	/*/ // 11/3/2016 
+	void Uniform{1234}{i f d}(int location, T value);
+	//*/
+	glUniform1d(uniform("tex"), v0);
 }

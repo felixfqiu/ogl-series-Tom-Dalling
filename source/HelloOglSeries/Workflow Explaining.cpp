@@ -1,8 +1,5 @@
 
-// TODO: Workflow Explaining
-
 /*/ // 10/26/2016 
-
 static void Render()
 {
 	// clear everything

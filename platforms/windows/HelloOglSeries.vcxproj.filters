@@ -10,29 +10,19 @@
     <ClCompile Include="..\..\source\HelloOglSeries\source\main.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\source\HelloOglSeries\source\Program.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\source\HelloOglSeries\source\Shader.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\source\HelloOglSeries\Workflow Explaining.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\source\HelloOglSeries\source\Program.h">
-      <Filter>source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\source\HelloOglSeries\source\Shader.h">
-      <Filter>source</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="..\..\source\HelloOglSeries\resources\vertex-shader.txt">
-      <Filter>source\shader</Filter>
-    </Text>
-    <Text Include="..\..\source\HelloOglSeries\resources\fragment-shader.txt">
-      <Filter>source\shader</Filter>
-    </Text>
+    <ClCompile Include="..\..\source\HelloOglSeries\source\tdogl\Program.cpp">
+      <Filter>source\tdogl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\HelloOglSeries\source\tdogl\Shader.cpp">
+      <Filter>source\tdogl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\HelloOglSeries\source\tdogl\Texture.cpp">
+      <Filter>source\tdogl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\HelloOglSeries\source\tdogl\Bitmap.cpp">
+      <Filter>source\tdogl</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="source">
@@ -41,8 +31,38 @@
     <Filter Include="common">
       <UniqueIdentifier>{2fae13e5-071c-463b-af31-09d4bf40a3ad}</UniqueIdentifier>
     </Filter>
-    <Filter Include="source\shader">
-      <UniqueIdentifier>{f18bffcd-1178-4096-9549-bb300e506c24}</UniqueIdentifier>
+    <Filter Include="resources">
+      <UniqueIdentifier>{cf3d4f9c-4934-4f56-abdf-6c10e9c88d43}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\tdogl">
+      <UniqueIdentifier>{8405a4eb-7b43-45a2-a0aa-f63210282d9f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\source\HelloOglSeries\resources\fragment-shader.txt">
+      <Filter>resources</Filter>
+    </Text>
+    <Text Include="..\..\source\HelloOglSeries\resources\vertex-shader.txt">
+      <Filter>resources</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\source\HelloOglSeries\resources\hazard.png">
+      <Filter>resources</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\source\HelloOglSeries\source\tdogl\Program.h">
+      <Filter>source\tdogl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\HelloOglSeries\source\tdogl\Shader.h">
+      <Filter>source\tdogl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\HelloOglSeries\source\tdogl\Texture.h">
+      <Filter>source\tdogl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\HelloOglSeries\source\tdogl\Bitmap.h">
+      <Filter>source\tdogl</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

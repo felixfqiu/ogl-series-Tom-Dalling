@@ -78,19 +78,26 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\source\HelloOglSeries\source\main.cpp" />
-    <ClCompile Include="..\..\source\HelloOglSeries\source\Program.cpp" />
-    <ClCompile Include="..\..\source\HelloOglSeries\source\Shader.cpp" />
     <ClCompile Include="..\..\source\common\thirdparty\glew\src\glew.c" />
+    <ClCompile Include="..\..\source\HelloOglSeries\source\tdogl\Bitmap.cpp" />
+    <ClCompile Include="..\..\source\HelloOglSeries\source\tdogl\Program.cpp" />
+    <ClCompile Include="..\..\source\HelloOglSeries\source\tdogl\Shader.cpp" />
+    <ClCompile Include="..\..\source\HelloOglSeries\source\tdogl\Texture.cpp" />
     <ClCompile Include="..\..\source\HelloOglSeries\Workflow Explaining.cpp" />
     <ClCompile Include="platform_windows.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\source\HelloOglSeries\source\Program.h" />
-    <ClInclude Include="..\..\source\HelloOglSeries\source\Shader.h" />
-  </ItemGroup>
-  <ItemGroup>
     <Text Include="..\..\source\HelloOglSeries\resources\fragment-shader.txt" />
     <Text Include="..\..\source\HelloOglSeries\resources\vertex-shader.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\source\HelloOglSeries\resources\hazard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\source\HelloOglSeries\source\tdogl\Bitmap.h" />
+    <ClInclude Include="..\..\source\HelloOglSeries\source\tdogl\Program.h" />
+    <ClInclude Include="..\..\source\HelloOglSeries\source\tdogl\Shader.h" />
+    <ClInclude Include="..\..\source\HelloOglSeries\source\tdogl\Texture.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

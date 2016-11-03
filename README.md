@@ -1,4 +1,4 @@
-# Feng's HelloOglSeries.vcxproject
+# Feng's Hello OglSeries.vcxproject
 
 ## [161026c] Workflow Explaining
 
@@ -10,4 +10,4 @@
 
 - - -
 
-# [About Tom Dalling](http://tomdalling.com/)
+# [About Tom Dalling's OglSeries](http://www.tomdalling.com/blog/category/modern-opengl/)
