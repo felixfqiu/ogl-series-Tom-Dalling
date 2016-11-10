@@ -12,7 +12,10 @@
 #include "tdogl/Program.h"
 #include "tdogl/Texture.h"
 
-const glm::vec2 SCREEN_SIZE(800, 600);
+const glm::vec2 SCREEN_SIZE(340, 770);
+
+// DO_NOT_SHOW_CONSOLE
+#pragma comment( linker, "/subsystem:\"windows\" /entry:\"mainCRTStartup\"" )
 
 GLFWwindow* gWindow = NULL;
 tdogl::Texture* gTexture = NULL;
@@ -35,7 +38,7 @@ static void LoadShaderAndProgram()
 	gProgram = new tdogl::Program(shaders);
 }
 
-static void LoadTriangle()
+static void LoadObject()
 {
 	/*/ // 10/25/2016 
 	Vertex Array Objects [2.10]
@@ -112,10 +115,10 @@ static void LoadTriangle()
 	};
 	//*/
 	GLfloat vertexData[] = {
-		//  X      Y     Z      U     V
-		 0.0f,  0.8f, 0.0f,  0.5f, 1.0f,
-		-0.8f, -0.8f, 0.0f,  0.0f, 0.0f,
-		 0.8f, -0.8f, 0.0f,  1.0f, 0.0f,
+		//  X       Y     Z      U     V
+		0.88f, -0.88f, 0.0f,  0.5f, 1.0f,
+		0.78f, -0.96f, 0.0f,  0.0f, 0.0f,
+		0.98f, -0.96f, 0.0f,  1.0f, 0.0f,
 	};
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertexData), vertexData, GL_STATIC_DRAW);
 
@@ -276,7 +279,7 @@ void AppMain()
 	//
 	// set up VBO / VAO
 	//
-	LoadTriangle();
+	LoadObject();
 
 	while (!glfwWindowShouldClose(gWindow))
 	{

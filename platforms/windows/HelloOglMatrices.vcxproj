@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D091DBBD-5AD6-46CB-9FA0-82875EA5397D}</ProjectGuid>
+    <ProjectGuid>{C55BBC15-ADF7-405C-AED7-9FDCA0F4ACB8}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>
     </RootNamespace>
@@ -77,33 +77,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\source\HelloOglSeries\source\main.cpp" />
+    <ClCompile Include="..\..\source\HelloOglMatrices\source\main.cpp" />
     <ClCompile Include="..\..\source\common\thirdparty\glew\src\glew.c" />
-    <ClCompile Include="..\..\source\HelloOglSeries\source\tdogl\Bitmap.cpp" />
-    <ClCompile Include="..\..\source\HelloOglSeries\source\tdogl\Program.cpp" />
-    <ClCompile Include="..\..\source\HelloOglSeries\source\tdogl\Shader.cpp" />
-    <ClCompile Include="..\..\source\HelloOglSeries\source\tdogl\Texture.cpp" />
-    <ClCompile Include="..\..\source\HelloOglSeries\Workflow Explaining.cpp" />
+    <ClCompile Include="..\..\source\HelloOglMatrices\source\tdogl\Bitmap.cpp" />
+    <ClCompile Include="..\..\source\HelloOglMatrices\source\tdogl\Program.cpp" />
+    <ClCompile Include="..\..\source\HelloOglMatrices\source\tdogl\Shader.cpp" />
+    <ClCompile Include="..\..\source\HelloOglMatrices\source\tdogl\Texture.cpp" />
     <ClCompile Include="platform_windows.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\source\HelloOglSeries\resources\fragment-shader.txt" />
-    <Text Include="..\..\source\HelloOglSeries\resources\vertex-shader.txt" />
+    <Text Include="..\..\source\HelloOglMatrices\resources\fragment-shader.txt" />
+    <Text Include="..\..\source\HelloOglMatrices\resources\vertex-shader.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\source\HelloOglSeries\resources\hazard.png" />
+    <Image Include="..\..\source\HelloOglMatrices\resources\hazard.png" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\source\HelloOglSeries\source\tdogl\Bitmap.h" />
-    <ClInclude Include="..\..\source\HelloOglSeries\source\tdogl\Program.h" />
-    <ClInclude Include="..\..\source\HelloOglSeries\source\tdogl\Shader.h" />
-    <ClInclude Include="..\..\source\HelloOglSeries\source\tdogl\Texture.h" />
+    <ClInclude Include="..\..\source\HelloOglMatrices\source\tdogl\Bitmap.h" />
+    <ClInclude Include="..\..\source\HelloOglMatrices\source\tdogl\Program.h" />
+    <ClInclude Include="..\..\source\HelloOglMatrices\source\tdogl\Shader.h" />
+    <ClInclude Include="..\..\source\HelloOglMatrices\source\tdogl\Texture.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\[161026a] LoadShaderAndProgram.md" />
-    <None Include="..\..\[161026b] VAO、VBO in LoadTriangle.md" />
-    <None Include="..\..\[161026c] Workflow Explaining.md" />
-    <None Include="..\..\[161103a] Textures.md" />
+    <None Include="..\..\Matrices.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

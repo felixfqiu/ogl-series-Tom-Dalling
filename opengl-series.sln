@@ -21,19 +21,17 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "08_even_more_lighting", "pl
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelloOglSeries", "platforms\windows\HelloOglSeries.vcxproj", "{D091DBBD-5AD6-46CB-9FA0-82875EA5397D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C706A55C-EA3E-4D13-864D-9052F88CF59E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OglSeries", "OglSeries", "{6EBFCBEA-47AA-4F3A-A7F9-52CA4E6AD2F1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HelloOglSeries", "HelloOglSeries", "{9DA7019E-A9FB-4B47-B6B0-E700B89DE462}"
 	ProjectSection(SolutionItems) = preProject
-		[161026b] VAO、VBO in LoadTriangle.md = [161026b] VAO、VBO in LoadTriangle.md
-		[161026c] Workflow Explaining.md = [161026c] Workflow Explaining.md
-		[161026x] LoadShaderAndProgram.md = [161026x] LoadShaderAndProgram.md
-		[161103a] Textures.md = [161103a] Textures.md
 		[About Tom Dalling].md = [About Tom Dalling].md
 		C:\Users\js\Desktop\Cheat Sheet\opengl42-quick-reference-card.pdf = C:\Users\js\Desktop\Cheat Sheet\opengl42-quick-reference-card.pdf
 		C:\Users\js\Desktop\Cheat Sheet\opengl43-quick-reference-card.pdf = C:\Users\js\Desktop\Cheat Sheet\opengl43-quick-reference-card.pdf
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OglSeries", "OglSeries", "{6EBFCBEA-47AA-4F3A-A7F9-52CA4E6AD2F1}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelloOglMatrices", "platforms\windows\HelloOglMatrices.vcxproj", "{C55BBC15-ADF7-405C-AED7-9FDCA0F4ACB8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,6 +75,10 @@ Global
 		{D091DBBD-5AD6-46CB-9FA0-82875EA5397D}.Debug|Win32.Build.0 = Debug|Win32
 		{D091DBBD-5AD6-46CB-9FA0-82875EA5397D}.Release|Win32.ActiveCfg = Release|Win32
 		{D091DBBD-5AD6-46CB-9FA0-82875EA5397D}.Release|Win32.Build.0 = Release|Win32
+		{C55BBC15-ADF7-405C-AED7-9FDCA0F4ACB8}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C55BBC15-ADF7-405C-AED7-9FDCA0F4ACB8}.Debug|Win32.Build.0 = Debug|Win32
+		{C55BBC15-ADF7-405C-AED7-9FDCA0F4ACB8}.Release|Win32.ActiveCfg = Release|Win32
+		{C55BBC15-ADF7-405C-AED7-9FDCA0F4ACB8}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,5 +92,7 @@ Global
 		{FC6C6DAB-BE5E-4DFA-ADE7-92FE4F71C043} = {6EBFCBEA-47AA-4F3A-A7F9-52CA4E6AD2F1}
 		{273F6D3E-1883-4F00-80A7-F86760A859D6} = {6EBFCBEA-47AA-4F3A-A7F9-52CA4E6AD2F1}
 		{70A49527-59F2-4B07-8D5A-87C3D94FB802} = {6EBFCBEA-47AA-4F3A-A7F9-52CA4E6AD2F1}
+		{D091DBBD-5AD6-46CB-9FA0-82875EA5397D} = {9DA7019E-A9FB-4B47-B6B0-E700B89DE462}
+		{C55BBC15-ADF7-405C-AED7-9FDCA0F4ACB8} = {9DA7019E-A9FB-4B47-B6B0-E700B89DE462}
 	EndGlobalSection
 EndGlobal

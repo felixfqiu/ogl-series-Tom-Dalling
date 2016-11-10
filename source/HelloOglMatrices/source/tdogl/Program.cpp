@@ -1,6 +1,7 @@
 
 #include "Program.h"
 #include <assert.h>
+#include <glm/gtc/type_ptr.hpp>
 
 using namespace tdogl;
 
@@ -136,20 +137,28 @@ GLuint Program::object() const
 	return _object;
 }
 
+void Program::use() const
+{
+	glUseProgram(_object);
+}
+
+void Program::stopUsing() const
+{
+	assert(isInUse());
+	glUseProgram(0);
+}
+
 bool Program::isInUse() const
 {
 	GLint currentProgram = 0;
-	/*/ // 11/3/2016 State and State Requests
-	void GetIntegerv(enum pname, int *data);
-	//*/
 	glGetIntegerv(GL_CURRENT_PROGRAM, &currentProgram);
 
 	return currentProgram == (GLint)_object;
 }
 
-GLuint Program::attrib(const GLchar* attribName) const
+GLuint Program::attrib(const GLchar* name) const
 {
-	if (attribName == NULL)
+	if (name == NULL)
 	{
 		throw std::runtime_error("attribName was NULL");
 	}
@@ -169,19 +178,19 @@ GLuint Program::attrib(const GLchar* attribName) const
 	int GetAttribLocation(uint program,	const char *name);
 	void BindAttribLocation(uint program, uint index, const char *name);
 	//*/
-	GLuint attrib = glGetAttribLocation(_object, attribName);
+	GLuint attrib = glGetAttribLocation(_object, name);
 	if (attrib == -1)
 	{
-		throw std::runtime_error(std::string("Program attribute not found: ") + attribName);
+		throw std::runtime_error(std::string("Program attribute not found: ") + name);
 	}
 
 	return attrib;
 }
 
 
-GLint Program::uniform(const GLchar* uniformName) const
+GLint Program::uniform(const GLchar* name) const
 {
-	if (uniformName == NULL)
+	if (name == NULL)
 	{
 		throw std::runtime_error("uniformName was NULL");
 	}
@@ -197,21 +206,23 @@ GLint Program::uniform(const GLchar* uniformName) const
 	GetActiveUniformBlockiv
 	GetActiveAtomicCounterBufferiv
 	//*/
-	GLint uniform = glGetUniformLocation(_object, uniformName);
+	GLint uniform = glGetUniformLocation(_object, name);
 	if (uniform == -1)
 	{
-		throw std::runtime_error(std::string("Program uniform not found: ") + uniformName);
+		throw std::runtime_error(std::string("Program uniform not found: ") + name);
 	}
 
 	return uniform;
 }
 
-void Program::setUniform(const GLchar* uniformName, int v0)
+void Program::setUniform(const GLchar* name, int v0)
 {
 	assert(isInUse());
+	glUniform1d(uniform(name), v0);
+}
 
-	/*/ // 11/3/2016 
-	void Uniform{1234}{i f d}(int location, T value);
-	//*/
-	glUniform1d(uniform(uniformName), v0);
+void Program::setUniform(const GLchar* name, const glm::mat4& m, GLboolean transpose)
+{
+	assert(isInUse());
+	glUniformMatrix4fv(uniform(name), 1, transpose, glm::value_ptr(m));
 }

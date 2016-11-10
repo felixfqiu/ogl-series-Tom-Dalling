@@ -65,4 +65,10 @@
       <Filter>source\tdogl</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\[161026a] LoadShaderAndProgram.md" />
+    <None Include="..\..\[161026b] VAO、VBO in LoadTriangle.md" />
+    <None Include="..\..\[161026c] Workflow Explaining.md" />
+    <None Include="..\..\[161103a] Textures.md" />
+  </ItemGroup>
 </Project>

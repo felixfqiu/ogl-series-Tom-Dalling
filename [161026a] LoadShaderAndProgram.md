@@ -1,4 +1,4 @@
-## [161026x] LoadShaderAndProgram 
+## [161026a] LoadShaderAndProgram 
  - shaderFromFile()
  - vertex-shader.txt / fragment-shader.txt
 

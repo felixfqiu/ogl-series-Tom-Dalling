@@ -264,8 +264,9 @@ void AppMain() {
 
         // check for errors
         GLenum error = glGetError();
-        if(error != GL_NO_ERROR)
-            std::cerr << "OpenGL Error " << error << std::endl;
+		if (error != GL_NO_ERROR) {
+			std::cerr << "OpenGL Error " << error << std::endl;
+		}
     }
 
     // clean up and exit
