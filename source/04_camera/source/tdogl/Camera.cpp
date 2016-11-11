@@ -15,8 +15,8 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-#define _USE_MATH_DEFINES
-#include <cmath>
+//#define _USE_MATH_DEFINES
+//#include <cmath>
 #include "Camera.h"
 #include <glm/gtc/matrix_transform.hpp>
 

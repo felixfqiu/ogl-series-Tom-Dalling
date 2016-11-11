@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\source\common\thirdparty\glew\src\glew.c">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="platform_windows.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\HelloOglCamera\source\main.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\HelloOglCamera\source\tdogl\Bitmap.cpp">
+      <Filter>source\tdogl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\HelloOglCamera\source\tdogl\Program.cpp">
+      <Filter>source\tdogl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\HelloOglCamera\source\tdogl\Shader.cpp">
+      <Filter>source\tdogl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\HelloOglCamera\source\tdogl\Texture.cpp">
+      <Filter>source\tdogl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\HelloOglCamera\source\tdogl\Camera.cpp">
+      <Filter>source\tdogl</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\source\HelloOglCamera\source\tdogl\Texture.h">
+      <Filter>source\tdogl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\HelloOglCamera\source\tdogl\Bitmap.h">
+      <Filter>source\tdogl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\HelloOglCamera\source\tdogl\Program.h">
+      <Filter>source\tdogl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\HelloOglCamera\source\tdogl\Shader.h">
+      <Filter>source\tdogl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\HelloOglCamera\source\tdogl\Camera.h">
+      <Filter>source\tdogl</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\source\HelloOglCamera\resources\fragment-shader.txt">
+      <Filter>resources</Filter>
+    </Text>
+    <Text Include="..\..\source\HelloOglCamera\resources\vertex-shader.txt">
+      <Filter>resources</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="common">
+      <UniqueIdentifier>{fc93b5d0-4302-4b20-b1d3-1336ced0c38a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resources">
+      <UniqueIdentifier>{596dbfe3-2b67-4b9b-b8e0-a53a7a4e0b45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source">
+      <UniqueIdentifier>{5d9c97f3-716d-4387-8988-49e289e2510e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\tdogl">
+      <UniqueIdentifier>{f9b088c7-52b9-43bb-8428-606e5cd78cc9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Camera.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\source\HelloOglCamera\resources\wooden-crate.jpg">
+      <Filter>resources</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

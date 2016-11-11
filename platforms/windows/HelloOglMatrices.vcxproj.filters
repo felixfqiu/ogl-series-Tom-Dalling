@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\source\common\thirdparty\glew\src\glew.c">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\HelloOglMatrices\source\main.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="platform_windows.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\HelloOglMatrices\source\tdogl\Program.cpp">
+      <Filter>source\tdogl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\HelloOglMatrices\source\tdogl\Shader.cpp">
+      <Filter>source\tdogl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\HelloOglMatrices\source\tdogl\Texture.cpp">
+      <Filter>source\tdogl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\HelloOglMatrices\source\tdogl\Bitmap.cpp">
+      <Filter>source\tdogl</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\source\HelloOglMatrices\source\tdogl\Texture.h">
+      <Filter>source\tdogl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\HelloOglMatrices\source\tdogl\Program.h">
+      <Filter>source\tdogl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\HelloOglMatrices\source\tdogl\Shader.h">
+      <Filter>source\tdogl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\HelloOglMatrices\source\tdogl\Bitmap.h">
+      <Filter>source\tdogl</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Matrices.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\source\HelloOglMatrices\resources\fragment-shader.txt">
+      <Filter>resources</Filter>
+    </Text>
+    <Text Include="..\..\source\HelloOglMatrices\resources\vertex-shader.txt">
+      <Filter>resources</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="common">
+      <UniqueIdentifier>{e70cfddd-ee6b-4d69-bc77-c2f8a81e7263}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resources">
+      <UniqueIdentifier>{e6d440dc-b7c1-4fac-95f0-324b7d4d85e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source">
+      <UniqueIdentifier>{263e5216-06c7-450d-83bf-f6650d370c84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\tdogl">
+      <UniqueIdentifier>{0b3ad335-31e3-4e85-ac52-cdcc9d8a9260}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\source\HelloOglMatrices\resources\hazard.png">
+      <Filter>resources</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

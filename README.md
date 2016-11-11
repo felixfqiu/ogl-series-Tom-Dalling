@@ -1,13 +1,15 @@
-# Feng's Hello OglSeries.vcxproject
-## [161026a] LoadShaderAndProgram 
+# Feng's Hello OglSeries.vcxproject (vs2015)
+## *[161026a] LoadShaderAndProgram*
 
-## [161026a] Program::Program(const std::vector<Shader>& shaders)
+## *[161026a] Program::Program(const std::vector<Shader>& shaders)*
 
-## [161026b] VAO / VBO in LoadTriangle 
+## *[161026b] VAO / VBO in LoadTriangle*
 
-## [161026c] Workflow Explaining
+## *[161026c] Workflow Explaining*
 
-## Matrices
+## *Matrices*
+
+## *Camera*
 
 - - -
 
