@@ -11,6 +11,7 @@
 #include <cassert>
 #include <stdexcept>
 #include <iostream>
+#include <vector>
 
 // tdogl classes
 #include "tdogl/Program.h"
@@ -23,36 +24,82 @@ const glm::vec2 SCREEN_SIZE(340, 770);
 // DO_NOT_SHOW_CONSOLE
 #pragma comment( linker, "/subsystem:\"windows\" /entry:\"mainCRTStartup\"" )
 
+struct ModelAsset
+{
+	tdogl::Texture* texture;
+	tdogl::Program* shaders;
+	GLuint vbo;
+	GLuint vao;
+	GLenum drawType;
+	GLint drawStart;
+	GLint drawCount;
+
+	ModelAsset() :
+		texture(NULL),
+		shaders(NULL),
+		vbo(0),
+		vao(0),
+		drawType(GL_TRIANGLES),
+		drawStart(0),
+		drawCount(0)
+	{}
+};
+
+struct ModelInstance
+{
+	ModelAsset* asset;
+	glm::mat4 transform;
+
+	ModelInstance(ModelAsset* other_asset, glm::mat4 other_transform) :
+		asset(other_asset),
+		transform(other_transform)
+	{}
+};
+
+ModelAsset gWoodenCrate;
+std::vector<ModelInstance> gInstance;
+
 // globals
 GLFWwindow* gWindow = NULL;
 double gScrollY = 0.0;
-tdogl::Texture* gTexture = NULL;
-tdogl::Program* gProgram = NULL;
 tdogl::Camera gCamera;
-
-GLuint gVAO = 0;
-GLuint gVBO = 0;
 GLfloat gDegreesRotated = 0.0f;
 
-static void LoadShader()
+static tdogl::Program* LoadShaders(const char* vertexShaderFile, const char* fragmentShaderFile)
 {
 	std::vector<tdogl::Shader> shaders;
-	shaders.push_back(tdogl::Shader::shaderFromFile(ResourcePath("vertex-shader.txt"), GL_VERTEX_SHADER));
-	shaders.push_back(tdogl::Shader::shaderFromFile(ResourcePath("fragment-shader.txt"), GL_FRAGMENT_SHADER));
-	gProgram = new tdogl::Program(shaders);
+	shaders.push_back(tdogl::Shader::shaderFromFile(vertexShaderFile, GL_VERTEX_SHADER));
+	shaders.push_back(tdogl::Shader::shaderFromFile(fragmentShaderFile, GL_FRAGMENT_SHADER));
+	return new tdogl::Program(shaders);
 }
 
-static void LoadObject()
+static tdogl::Texture* LoadTexture(const char* textureFile)
 {
-	// VAO
-	glGenVertexArrays(1, &gVAO);
-	glBindVertexArray(gVAO);
+	tdogl::Bitmap bmp = tdogl::Bitmap::bitmapFromFile(textureFile);
+	return new tdogl::Texture(bmp);
+}
 
-	// VBO
-	glGenBuffers(1, &gVBO);
-	glBindBuffer(GL_ARRAY_BUFFER, gVBO);
+static void LoadAssert()
+{
+	// LoadTexture
+	gWoodenCrate.texture = LoadTexture(ResourcePath("wooden-crate.jpg").c_str());
+
+	// LoadShaders
+	gWoodenCrate.shaders = LoadShaders(ResourcePath("vertex-shader.txt").c_str(), ResourcePath("fragment-shader.txt").c_str());
+
+	// gen/bind VAO
+	glGenVertexArrays(1, &gWoodenCrate.vao);
+	glBindVertexArray(gWoodenCrate.vao);
+
+	// gen/bind VBO
+	glGenBuffers(1, &gWoodenCrate.vbo);
+	glBindBuffer(GL_ARRAY_BUFFER, gWoodenCrate.vbo);
 
 	// Put int VBO
+	gWoodenCrate.drawType = GL_TRIANGLES;
+	gWoodenCrate.drawStart = 0;
+	gWoodenCrate.drawCount = 36; // 6*2*3
+
 	GLfloat vertexData[] = {
     //  X     Y     Z       U     V
     // bottom
@@ -107,26 +154,64 @@ static void LoadObject()
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertexData), vertexData, GL_STATIC_DRAW);
 
 	// xyz to "vert" of vertex-shader.txt
-	glEnableVertexAttribArray(gProgram->attrib("vert"));
-	glVertexAttribPointer(gProgram->attrib("vert"), 3, GL_FLOAT, GL_FALSE, 5*sizeof(GLfloat), NULL);
+	glEnableVertexAttribArray(gWoodenCrate.shaders->attrib("vert"));
+	glVertexAttribPointer(gWoodenCrate.shaders->attrib("vert"), 3, GL_FLOAT, GL_FALSE, 5*sizeof(GLfloat), NULL);
 
 	// uv to "vertTexCoord" of vertex-shader.txt
-	glEnableVertexAttribArray(gProgram->attrib("vertTexCoord"));
-	glVertexAttribPointer(gProgram->attrib("vertTexCoord"), 2, GL_FLOAT, GL_FALSE, 5*sizeof(GLfloat), (const GLvoid*)(3*sizeof(GLfloat)));
+	glEnableVertexAttribArray(gWoodenCrate.shaders->attrib("vertTexCoord"));
+	glVertexAttribPointer(gWoodenCrate.shaders->attrib("vertTexCoord"), 2, GL_FLOAT, GL_FALSE, 5*sizeof(GLfloat), (const GLvoid*)(3*sizeof(GLfloat)));
 
 	// unbind
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	//glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
 }
 
-//
-// LoadTexture
-//
-static void LoadTexture()
+glm::mat4 translate(GLfloat x, GLfloat y, GLfloat z)
 {
-	//tdogl::Bitmap bmp = tdogl::Bitmap::bitmapFromFile(ResourcePath("hazard.png"));
-	tdogl::Bitmap bmp = tdogl::Bitmap::bitmapFromFile(ResourcePath("wooden-crate.jpg"));	
-	gTexture = new tdogl::Texture(bmp);
+	return glm::translate(glm::mat4(), glm::vec3(x, y, z));
+}
+
+glm::mat4 scale(GLfloat x, GLfloat y, GLfloat z)
+{
+	return glm::scale(glm::mat4(), glm::vec3(x, y, z));
+}
+
+static void CreateInstance()
+{
+	gInstance.push_back( ModelInstance(&gWoodenCrate, translate(-8, 0, 0) * scale(1, 6, 1))    ); // HLeft
+	gInstance.push_back( ModelInstance(&gWoodenCrate, translate(-4, 0, 0) * scale(1, 6, 1))    ); // HRight
+	gInstance.push_back( ModelInstance(&gWoodenCrate, translate(-6, 0, 0) * scale(2, 1, 0.8f)) ); // HMid
+	gInstance.push_back( ModelInstance(&gWoodenCrate, glm::mat4())                             ); // iTop
+	gInstance.push_back( ModelInstance(&gWoodenCrate, translate(0, -4, 0) * scale(1, 2, 1))    ); // iBottom
+}
+
+static void RenderInstance(const ModelInstance& inst)
+{
+	ModelAsset* assert = inst.asset;
+	tdogl::Program* shaders = assert->shaders;
+
+	// bind program (shaders)
+	shaders->use();
+
+	shaders->setUniform("camera", gCamera.matrix());
+	shaders->setUniform("model", inst.transform);
+	shaders->setUniform("tex", 0); //set to 0 because the texture is bound to GL_TEXTURE0
+
+	// bind texture
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, assert->texture->object());
+
+	// VAO bind
+	glBindVertexArray(assert->vao);
+
+	// draw
+	glDrawArrays(assert->drawType, assert->drawStart, assert->drawCount);
+
+	// unbind VAO/texture/program
+	glBindVertexArray(0);
+	glBindTexture(GL_TEXTURE_2D, 0);
+
+	shaders->stopUsing();
 }
 
 static void Render()
@@ -135,32 +220,10 @@ static void Render()
 	glClearColor(0, 0, 0, 1);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	// bind program (shaders)
-	gProgram->use();
-
-		// set "camera" uniform
-		gProgram->setUniform("camera", gCamera.matrix());
-
-		// set the "model" uniform in the vertex shader, based on the gDegreesRotated global
-		glm::mat4 model = glm::rotate(glm::mat4(), glm::radians(gDegreesRotated), glm::vec3(0,1,0));
-		gProgram->setUniform("model", model);
-
-		// bind texture
-		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, gTexture->object());
-		gProgram->setUniform("tex", 0); //set to 0 because the texture is bound to GL_TEXTURE0
-
-		// VAO bind
-		glBindVertexArray(gVAO);
-
-		// draw
-		glDrawArrays(GL_TRIANGLES, 0, 6*2*3);
-
-		// unbind VAO/texture/program
-		glBindVertexArray(0);
-		glBindTexture(GL_TEXTURE_2D, 0);
-
-	gProgram->stopUsing();
+	for (size_t i=0; i<gInstance.size(); i++)
+	{
+		RenderInstance( gInstance[i] );
+	}
 
 	// displays what was just drawn
 	glfwSwapBuffers(gWindow);
@@ -174,6 +237,10 @@ void Update(float secondsElapsed)
 	{
 		gDegreesRotated -= 360.0f;
 	}
+
+	//
+	gInstance[3].transform = glm::rotate(glm::mat4(), glm::radians(gDegreesRotated), glm::vec3(0,1,0));
+
 
 	//
 	// camera move pos, check 'W','A','S','D'
@@ -279,27 +346,17 @@ void AppMain()
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	//
-	// ### LoadShader
-	//  - shaderFromFile()
-	//	- vertex-shader.txt / fragment-shader.txt
-	//
-	LoadShader();
+	// initialise assert
+	LoadAssert();
 
-	//
-	// load texture
-	//
-	LoadTexture();
-
-	//
-	// set up VBO / VAO
-	//
-	LoadObject();
+	// create instance based on assert
+	CreateInstance();
 
 	//
 	// setup gCamera
 	//
-	gCamera.setPos(glm::vec3(0, 0, 4));
+	//gCamera.setPos(glm::vec3(0, 0, 4));
+	gCamera.setPos(glm::vec3(-4, 0, 17));
 	gCamera.setViewportAspectRatio(SCREEN_SIZE.x / SCREEN_SIZE.y);
 
 	//

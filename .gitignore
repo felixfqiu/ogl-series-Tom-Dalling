@@ -15,3 +15,5 @@ build/
 platforms/linux/*/bin/
 platforms/linux/*/obj/
 /opengl-series.VC.VC.opendb
+/Doxygen/HelloOglCamera/html
+/Doxygen/KJGameOpti.chm

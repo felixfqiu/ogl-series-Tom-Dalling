@@ -38,9 +38,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\Matrices.md" />
-  </ItemGroup>
-  <ItemGroup>
     <Text Include="..\..\source\HelloOglMatrices\resources\fragment-shader.txt">
       <Filter>resources</Filter>
     </Text>
@@ -66,5 +63,8 @@
     <Image Include="..\..\source\HelloOglMatrices\resources\hazard.png">
       <Filter>resources</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Matrices.md" />
   </ItemGroup>
 </Project>

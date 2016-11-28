@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\Camera.md" />
+    <None Include="..\..\Camera+Model Asset.md" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\source\HelloOglCamera\resources\wooden-crate.jpg">

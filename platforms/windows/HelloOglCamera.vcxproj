@@ -98,6 +98,7 @@
     <ClInclude Include="..\..\source\HelloOglCamera\source\tdogl\Texture.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\Camera+Model Asset.md" />
     <None Include="..\..\Camera.md" />
   </ItemGroup>
   <ItemGroup>
